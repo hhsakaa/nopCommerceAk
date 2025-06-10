@@ -16,3 +16,7 @@ services:
 
 volumes:
   nopcommerce_data:            
+  mssql_data:
+
+networks:
+  nop_net:

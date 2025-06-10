@@ -30,7 +30,13 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
+        stage('Expose to Internet') {
+            steps {
+                sh 'ngrok http 8080 &'
+            }
+        }
     }
+
 
     post {
         success {

@@ -32,6 +32,7 @@ pipeline {
         }
         stage('Expose to Internet') {
             steps {
+                sh 'ngrok config add-authtoken 2yKhaxVADpsHwQqFinYe6iIkjEe_7DcC2J2QiczJC6PnFWoiL'
                 sh 'ngrok http 8080 &'
             }
         }

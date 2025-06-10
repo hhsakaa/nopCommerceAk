@@ -1,80 +1,154 @@
-﻿﻿nopCommerce: free and open-source eCommerce solutions
-===========
+# 🚀 nopCommerce CI/CD Pipeline with Jenkins, Docker, MSSQL & Ngrok (HTTPS)
 
-[nopCommerce](https://www.nopcommerce.com/?utm_source=github&utm_medium=content&utm_campaign=homepage) is the best open-source eCommerce platform. nopCommerce is free, and it is the most popular ASP.NET Core shopping cart.
+This project sets up a **complete CI/CD pipeline** using **Jenkins** to automate the build and deployment of the [nopCommerce](https://github.com/hhsakaa/nopCommerceAk) application. The deployment is containerized using **Docker**, connected to a **MSSQL** database, and exposed securely to the internet using **Ngrok with HTTPS termination**.
 
-![nopCommerce demo](https://www.nopcommerce.com/images/github/responsive_devices_codeplex.png#v1)
+---
 
-### Key features ###
+## ✅ Features
 
-* The product is being developed and supported by the professional team since 2008.
-* nopCommerce has been downloaded more than 3,000,000 times.
-* The active developer community has more than 250,000 members.
-* nopCommerce runs on .NET 9 with an MS SQL 2012 (or higher) backend database.
-* nopCommerce is cross-platform, and you can run it on Windows, Linux, or Mac.
-* nopCommerce supports Docker out of the box, so you can easily run nopCommerce on a Linux machine.
-* nopCommerce supports PostgreSQL and MySQL databases.
-* nopCommerce fully supports web farms. You can read more about it [here](https://docs.nopcommerce.com/en/developer/tutorials/web-farms.html?utm_source=github&utm_medium=referral&utm_campaign=documentation&utm_content=text).  
-* All methods in nopCommerce are async.
-* nopCommerce supports multi-factor authentication out of the box.
-* Start our [online course for developers](https://nopcommerce.com/training?utm_source=github&utm_medium=referral&utm_campaign=course&utm_content=text) and get the practical and technical skills you need to run and customize nopCommerce websites.
+- Automated CI/CD with **Jenkins Declarative Pipeline**
+- Docker-based deployment of:
+  - nopCommerce (ASP.NET Core app)
+  - MSSQL Server
+- Secure HTTPS exposure using **Ngrok**
+- Clean and modular `docker-compose.yml`
+- Jenkins automatically:
+  - Pulls latest source from GitHub
+  - Builds Docker image
+  - Spins up containers
+  - Exposes app online
+- BLEU/ROUGE scoring setup included for content quality evaluation (if needed)
 
-![Logo](https://www.nopcommerce.com/images/github/logos.png#v2)
+---
 
-nopCommerce architecture follows well-known software patterns and the best security practices. The source code is fully customizable. Pluggable and clear architecture makes it easy to develop custom functionality and follow any business requirements.
+## 🛠️ Tech Stack
 
-Using the latest Microsoft technologies, nopCommerce provides high performance, stability, and security. nopCommerce is also fully compatible with Azure and web farms.
+- Jenkins
+- Docker & Docker Compose
+- MSSQL Server
+- Ngrok (for HTTPS exposure)
+- GitHub (source version control)
+- Optional: Python (for BLEU/ROUGE scoring with `nltk` and `rouge-score`)
 
-Our clear and detailed [documentation](https://docs.nopcommerce.com/developer/index.html?utm_source=github&utm_medium=referral&utm_campaign=documentation&utm_content=text) and [online course](https://nopcommerce.com/training?utm_source=github&utm_medium=referral&utm_campaign=course&utm_content=text) for developers will help you start with nopCommerce easily.
+---
 
+## 🔧 CI/CD Pipeline Stages
 
-### The advantages of working with nopCommerce ###
+1. **Checkout Stage**  
+   Pulls latest code from the configured GitHub repository.
 
-nopCommerce offers powerful [out-of-the-box features](https://www.nopcommerce.com/features?utm_source=github&utm_medium=referral&utm_campaign=features&utm_content=text) for creating an online store of any size and type.
+2. **Build Stage**  
+   Builds Docker images using `Dockerfile`.
 
-nopCommerce is integrated with all the popular third-party services. You can find thousands of integrations on nopCommerce [Marketplace](https://www.nopcommerce.com/marketplace?utm_source=github&utm_medium=referral&utm_campaign=marketplace&utm_content=text).
+3. **Deploy Stage**  
+   Uses `docker-compose` to spin up `nopCommerce` and `MSSQL`.
 
-The [Web API plugin](https://www.nopcommerce.com/web-api?utm_source=github&utm_medium=referral&utm_campaign=WebAPI&utm_content=text) by the nopCommerce team lets you build integrations with third-party services or mobile applications using REST. The Web API plugin is available with source code and covers all methods of nopCommerce: backend and frontend. You can read more about it [here](https://www.nopcommerce.com/web-api?utm_source=github&utm_medium=referral&utm_campaign=WebAPI&utm_content=text).
+4. **Expose to Internet**  
+   Starts Ngrok to expose port `8080` via HTTPS and logs the public URL.
 
-Friendly members of the [nopCommerce community](https://www.nopcommerce.com/boards?utm_source=github&utm_medium=referral&utm_campaign=forum&utm_content=text) will always help with advice and share their experiences. nopCommerce core development team provides [professional support](https://www.nopcommerce.com/nopcommerce-premium-support-services?utm_source=github&utm_medium=referral&utm_campaign=premium_support&utm_content=text) within 24 hours.
+5. **Post Action**  
+   Echoes deployment success message and optionally logs BLEU/ROUGE score results.
 
+---
 
-## Store demo ##
+## 🚀 Quick Start
 
-Evaluate the functionality and convenience of nopCommerce as a customer and store owner.
+### 1. Clone Your Forked Repo
 
-Front End | Admin area
-----|------
-[![ScreenShot](https://www.nopcommerce.com/images/github/public-demo.png#v1)](https://demo.nopcommerce.com?utm_source=github&utm_medium=referral&utm_campaign=demo_store&utm_content=button) | [![ScreenShot](https://www.nopcommerce.com/images/github/admin-demo.png#v1)](https://admin-demo.nopcommerce.com/admin?utm_source=github&utm_medium=referral&utm_campaign=demo_store&utm_content=button)
+```bash
+git clone https://github.com/hhsakaa/nopCommerceAk.git
+cd nopCommerceAk
+```
 
+### 2. Set Up Jenkins Pipeline
 
-### nopCommerce resources ###
+- Create a new pipeline job in Jenkins.
+- Point it to your GitHub repo.
+- Use the provided `Jenkinsfile`.
 
-nopCommerce official site: [https://www.nopcommerce.com](https://www.nopcommerce.com/?utm_source=github&utm_medium=referral&utm_campaign=homepage&utm_content=links)
+### 3. Install Dependencies (on Jenkins Agent)
 
-* [Demo store](https://www.nopcommerce.com/demo?utm_source=github&utm_medium=referral&utm_campaign=demo_store&utm_content=links)
-* [Download nopCommerce](https://www.nopcommerce.com/download-nopcommerce?utm_source=github&utm_medium=referral&utm_campaign=download_nop&utm_content=links)
-* [Online course for developers](https://nopcommerce.com/training?utm_source=github&utm_medium=referral&utm_campaign=course&utm_content=links)
-* [Feature list](https://www.nopcommerce.com/features?utm_source=github&utm_medium=referral&utm_campaign=features&utm_content=links)
-* [Web API plugin](https://www.nopcommerce.com/web-api?utm_source=github&utm_medium=referral&utm_campaign=WebAPI&utm_content=links)
-* [nopCommerce documentation](https://docs.nopcommerce.com?utm_source=github&utm_medium=referral&utm_campaign=documentation&utm_content=links)
-* [Community forums](https://www.nopcommerce.com/boards?utm_source=github&utm_medium=referral&utm_campaign=forum&utm_content=links)
-* [Premium support services](https://www.nopcommerce.com/nopcommerce-premium-support-services?utm_source=github&utm_medium=referral&utm_campaign=premium_support&utm_content=links)
-* [Certified developer program](https://www.nopcommerce.com/certified-developer-program?utm_source=github&utm_medium=referral&utm_campaign=certified_developer&utm_content=links)
-* [nopCommerce partners](https://www.nopcommerce.com/partners?utm_source=github&utm_medium=referral&utm_campaign=solution_partners&utm_content=links)
+```bash
+sudo apt update
+sudo apt install -y docker.io docker-compose python3-pip unzip
+pip3 install nltk rouge-score
+wget https://bin.ngrok.com/linux/amd64/ngrok-stable-linux-amd64.tgz
+tar -xvzf ngrok-stable-linux-amd64.tgz
+sudo mv ngrok /usr/local/bin
+ngrok config add-authtoken <your-ngrok-authtoken>
+```
 
-nopCommerce YouTube: [The Architecture behind the nopCommerce eCommerce Platform](https://www.youtube.com/watch?v=6gLbizzSA9o&list=PLnL_aDfmRHwtJmzeA7SxrpH3-XDY2ue0a)
+---
 
+## 🐳 Docker Setup
 
-### Earn with nopCommerce ###
+Ensure the root directory has the following:
 
-60,000 stores worldwide are powered by nopCommerce, and 10,000 new stores open every year. nopCommerce [solution partners’ directory](https://www.nopcommerce.com/partners?utm_source=github&utm_medium=referral&utm_campaign=solution_partners&utm_content=text_become_partner) gets 80,000+ page views per year from store owners who are looking for a partner to build a store from scratch, migrate from another platform, or improve and customize an existing store.
+- `docker-compose.yml`
+- `Dockerfile` (for nopCommerce build)
 
-Become a solution partner of nopCommerce and get new clients – [learn more](https://www.nopcommerce.com/become-partner?utm_source=github&utm_medium=referral&utm_campaign=become-partner&utm_content=learn_more).
+```bash
+docker-compose up -d
+```
 
-Create a new graphical theme or develop a new plugin or integration and sell it on the nopCommerce [Marketplace](https://www.nopcommerce.com/marketplace?utm_source=github&utm_medium=referral&utm_campaign=marketplace&utm_content=text_sell_on_marketplace).
+---
 
+## 🔒 HTTPS with Ngrok
 
-### Contribute ###
+Jenkins runs:
 
-As a free and open-source project, we are very grateful to everyone who helps us to develop nopCommerce. Please find more details about the options and bonuses for contributors at [contribute page](https://www.nopcommerce.com/contribute?utm_source=github&utm_medium=referral&utm_campaign=contribute&utm_content=text).
+```bash
+ngrok http 8080
+```
+
+You can fetch the public HTTPS URL using Ngrok’s local API
+---
+
+---
+
+## 📈 Evaluation (Optional)
+
+If you're running content evaluation:
+
+```bash
+python3 score_eval.py
+```
+
+BLEU and ROUGE scoring scripts use `nltk` and `rouge-score`.
+
+---
+
+## 📁 Project Structure
+
+```
+.
+├── docker-compose.yml
+├── Dockerfile
+├── Jenkinsfile
+├── score_eval.py
+├── README.md
+└── ...
+```
+
+---
+
+## 🌐 Access
+
+Once deployed, your application will be live at:
+
+```
+🔗 https://<random-subdomain>.ngrok.io
+```
+
+Check Jenkins build logs for the exact URL.
+
+---
+
+## 👨‍💻 Author
+
+**Akash Raghav**  
+DevOps Engineer | Cloud Enthusiast  
+[LinkedIn](https://www.linkedin.com/in/akash-raghav/) · [GitHub](https://github.com/akashraghav-dev)
+
+---
+

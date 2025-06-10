@@ -148,7 +148,7 @@ Check Jenkins build logs for the exact URL.
 
 **Akash Raghav**  
 DevOps Engineer | Cloud Enthusiast  
-[LinkedIn](https://www.linkedin.com/in/akash-raghav/) · [GitHub](https://github.com/akashraghav-dev)
+[LinkedIn](https://www.linkedin.com/in/hhsakaa/) · [GitHub](https://github.com/hhsakaa)
 
 ---
 

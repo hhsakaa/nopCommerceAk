@@ -1,5 +1,5 @@
 # create the build instance 
-FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0-alpine AS buil
 
 WORKDIR /src                                                                    
 COPY ./src ./

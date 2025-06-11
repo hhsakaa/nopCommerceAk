@@ -47,7 +47,7 @@ This project sets up a **complete CI/CD pipeline** using **Jenkins** to automate
    Starts Ngrok to expose port `8080` via HTTPS and logs the public URL.
 
 5. **Post Action**  
-   Echoes deployment success message and optionally logs BLEU/ROUGE score results.
+   Echoes deployment success message.
 
 ---
 

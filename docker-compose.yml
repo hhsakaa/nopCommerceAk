@@ -18,7 +18,7 @@ services:
       context: .
     container_name: nopcommerce_web
     ports:
-      - "8080:80"
+      - "80:80"
     depends_on:
       - nopcommerce_database
     networks:

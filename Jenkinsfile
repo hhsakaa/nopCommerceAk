@@ -36,7 +36,7 @@ pipeline {
             }    
             steps {
                 sh 'ngrok config add-authtoken $NGROK_AUTH_TOKEN'
-                sh 'ngrok http 8080 &'
+                sh 'ngrok http 80 &'
             }
         }
     }

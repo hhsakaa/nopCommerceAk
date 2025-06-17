@@ -27,7 +27,7 @@ pipeline {
 
         stage('Start Containers') {
             steps {
-                sh 'docker-compose up -d'
+                sh 'docker-compose up -d --network host'
             }
         }
         stage('Expose to Internet') {

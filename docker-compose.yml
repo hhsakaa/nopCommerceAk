@@ -14,8 +14,7 @@ services:
       - nop_net
 
   nopcommerce_web:
-    build:
-      context: .
+    build: .
     container_name: nopcommerce_web
     ports:
       - "80:80"

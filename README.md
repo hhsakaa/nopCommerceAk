@@ -1,4 +1,4 @@
-# 🚀 nopCommerce CI/CD Pipeline with Jenkins, Docker, MSSQL & Ngrok (HTTPS) 
+# 🚀 nopCommerce CI/CD Pipeline with Jenkins, Docker, MSSQL & Ngrok (HTTPS)
 
 This project sets up a **complete CI/CD pipeline** using **Jenkins** to automate the build and deployment of the [nopCommerce](https://github.com/hhsakaa/nopCommerceAk) application. The deployment is containerized using **Docker**, connected to a **MSSQL** database, and exposed securely to the internet using **Ngrok with HTTPS termination**.
 
